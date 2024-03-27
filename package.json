@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "@types/glob": "^8.1.0",
     "glob": "^8.1.0",
     "rollup-plugin-includepaths": "^0.2.4",
     "vite": "^4.5.2"
