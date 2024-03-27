@@ -1,4 +1,4 @@
-import SimpleLightbox from "simplelightbox";
+
 const images = [
   {
     preview:
@@ -67,7 +67,11 @@ const images = [
 
 
 
+
+import SimpleLightbox from "simplelightbox";
+
 import "simplelightbox/dist/simple-lightbox.min.css";
+
 
 
 

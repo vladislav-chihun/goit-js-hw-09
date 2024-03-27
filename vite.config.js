@@ -8,7 +8,7 @@ export default defineConfig(({ command }) => {
     define: {
       [command === 'serve' ? 'global' : '_global']: {},
     },
-    root: 'src/public',
+    root: 'src',
     build: {
       sourcemap: true,
 
