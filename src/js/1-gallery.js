@@ -65,12 +65,7 @@ const images = [
   },
 ];
 
-
-
 import "simplelightbox/dist/simple-lightbox.min.css";
-
-
-
 const imageContainer = document.querySelector(".gallery");
 imageContainer.innerHTML = createElement(images);
 imageContainer.addEventListener("click", (event) => modalOpen(event, images))
@@ -87,8 +82,6 @@ const lightbox = new SimpleLightbox('.gallery a', {
     nav: true,
 });
 }
-
-
 
 function createElement(images) {
   return images.map(({preview, original, description,},index) => 

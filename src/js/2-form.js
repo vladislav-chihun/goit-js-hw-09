@@ -1,6 +1,7 @@
 const form = document.querySelector("form")
 const textarea = document.querySelector("textarea")
 const storageKey = "feedback-form-state"
+
 form.addEventListener("input", formChange)
 function formChange(e) {
     const message = textarea.value.trim();
@@ -20,6 +21,7 @@ function formSubmit(e) {
     textarea.value = "";
     form.elements.email.value = "";
 }
+
 const storageData = localStorage.getItem(storageKey)?? "";
 
 try {
