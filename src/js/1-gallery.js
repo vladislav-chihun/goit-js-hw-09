@@ -69,21 +69,20 @@ const images = [
 
 
 const imageContainer = document.querySelector('.gallery');
-images.map(({ preview, original, description }) => {
-  const galleryItem = document.createElement('li');
-  galleryItem.classList.add('gallery-item');
-  galleryItem.innerHTML = `
-    <a class="gallery-link" href="${original}">
-      <img
-        class="gallery-image"
-        src="${preview}"
-        alt="${description}"
-      />
-    </a>`;
-  imageContainer.appendChild(galleryItem);
-});
 
-const lightbox = new SimpleLightbox('.gallery a',{
+function createMarkup(arr) {
+  return arr.map(({ preview, original, description }) => `
+    <li class="gallery-item">
+      <a class="gallery-link" href="${original}">
+        <img class="gallery-image" src="${preview}" alt="${description}" />
+      </a>
+    </li>
+  `).join('');
+}
+
+imageContainer.innerHTML = createMarkup(images);
+
+const lightbox = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
   captionDelay: 250
 });
