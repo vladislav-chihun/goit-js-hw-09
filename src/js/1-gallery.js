@@ -1,4 +1,5 @@
 import SimpleLightbox from "simplelightbox";
+import "simplelightbox/dist/simple-lightbox.min.css";
 const images = [
   {
     preview:
@@ -65,37 +66,24 @@ const images = [
   },
 ];
 
-import "simplelightbox/dist/simple-lightbox.min.css";
-const imageContainer = document.querySelector(".gallery");
-imageContainer.innerHTML = createElement(images);
-imageContainer.addEventListener("click", (event) => modalOpen(event, images))
 
-function modalOpen(event, images) {
-  event.preventDefault()
-imageContainer.innerHTML = createElement(images);
-const lightbox = new SimpleLightbox('.gallery a', {
-    sourceAttr: 'href',
-    captionsData: 'alt',
-    captionDelay: 250,
-    captionPosition: 'bottom',
-    close: true,
-    nav: true,
+
+const imageContainer = document.querySelector('.gallery');
+images.map(({ preview, original, description }) => {
+  const galleryItem = document.createElement('li');
+  galleryItem.classList.add('gallery-item');
+  galleryItem.innerHTML = `
+    <a class="gallery-link" href="${original}">
+      <img
+        class="gallery-image"
+        src="${preview}"
+        alt="${description}"
+      />
+    </a>`;
+  imageContainer.appendChild(galleryItem);
 });
-}
 
-function createElement(images) {
-  return images.map(({preview, original, description,},index) => 
-`<li class="gallery-item">
-	<a class="gallery-link" href="${original}" data-caption="${description}">
-		<img 
-			class="gallery-image" 
-			src="${preview}" 
-			alt="${description}" 
-			/>
-	</a>
-</li>`
-    ).join("")
-}
-
-
-
+const lightbox = new SimpleLightbox('.gallery a',{
+  captionsData: 'alt',
+  captionDelay: 250
+});
