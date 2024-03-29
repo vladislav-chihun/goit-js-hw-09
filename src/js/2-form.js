@@ -1,5 +1,5 @@
 const form = document.querySelector("form")
-const textarea = document.querySelector("textarea")
+const textarea = form.elements.message
 const storageKey = "feedback-form-state"
 
 form.addEventListener("input", formChange)
@@ -29,5 +29,5 @@ try {
     textarea.value = parseData.message;
     form.elements.email.value = parseData.email;
 } catch {
-    console.log("No Data")
+    console.log("No LocaleStorage Data")
 }
